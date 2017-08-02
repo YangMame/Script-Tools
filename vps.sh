@@ -3,7 +3,8 @@ IP=`/sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'
 read -p "Install shadowsocks ? (n or ENTER " TMP
 if [ "$TMP" == "" ]
 then apt install python python-pip -y
-    pip install shadowsocks
+    pip install https://github.com/shadowsocks/shadowsocks/archive/master.zip
+    mkdir /etc/shadowsocks
     read -p "Input your password : " PASSWD
     echo "{
 	    \"server\":\"$IP\",
@@ -14,12 +15,13 @@ then apt install python python-pip -y
 	    \"timeout\":300,
 	    \"method\":\"aes-256-cfb\"
 	}
-    " > /etc/ss-config.json
+    " > /etc/shaowsocks/config.json
     ssserver -c /etc/ss-config.json -d start
     echo -e "\033[31m ********************************************** \033[0m"
     echo "Your ss config is : "
     cat /etc/ss-config.json
 fi
+
 echo -e "\033[31m ********************************************** \033[0m"
 read -p "ENTER to continue "
 
