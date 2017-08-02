@@ -26,7 +26,7 @@ read -p "ENTER to continue "
 read -p "Install shadowsocks r ? (n or ENTER " TMP
 if [ "$TMP" == "" ]
 then apt install git python -y
-git clone -b manyuser https://github.com/shadowsocksr/shadowsocksr.git
+git clone -b manyuser https://github.com/YangMame/shadowsocksr.git
 cd shadowsocksr&&bash initcfg.sh&&cd shadowsocks
 read -p "Input your passworld : " PASSWD
 read -p "Input the port you wanna to use :  " PORT
