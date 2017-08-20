@@ -16,10 +16,10 @@ then apt install python python-pip -y
 	    \"method\":\"aes-256-cfb\"
 	}
     " > /etc/shaowsocks/config.json
-    ssserver -c /etc/ss-config.json -d start
+    ssserver -c /etc/shadowsocks/config.json -d start
     echo -e "\033[31m ********************************************** \033[0m"
     echo "Your ss config is : "
-    cat /etc/ss-config.json
+    cat /etc/shaowsocks/config.json
 fi
 
 echo -e "\033[31m ********************************************** \033[0m"
